@@ -1,0 +1,13 @@
+// * Paleta de colores
+@import "colors";
+
+// * Ajustes generales
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+// * Estilos importados
+@import "body";
+@import "listaAlumnos";
