@@ -25,9 +25,12 @@ class EscuelaController extends Controller
      */
     public function alumnosShow($id){
         $alumno = Alumnos::find($id);
+
         $grupo = Grupos::find($alumno->id_grupo);
+
         return view('detalle_alumno')
-            ->width('alumno', $alumno);
+            ->with('alumno', $alumno)
+            ->with('grupo', $grupo);
     }
 
     public function alumnosCreate(){
@@ -48,8 +51,8 @@ class EscuelaController extends Controller
             'nombre' => 'required|string',
             'fecha_nacimiento' => 'required|date',
             'genero' => 'required|string',
-            'email' => 'required|text',
-            'direccion' => 'required|text',
+            'email' => 'required|string',
+            'direccion' => 'required|string',
             'id_grupo' => 'required|integer',
             'password' => 'required',
         ]);
@@ -81,7 +84,17 @@ class EscuelaController extends Controller
             'foto' => $foto_name
         ]);
 
-        return redirect()->route('lista');
+        return redirect()->route('index');
+    }
+
+    public function alumnosEdit($id){
+        $alumno = Alumnos::find($id);
+
+        $grupo = Grupos::find($alumno->id_grupo);
+
+        return view('editar_alumno')
+            ->with('alumno', $alumno)
+            ->with('grupo', $grupo);
     }
 
     public function alumnosUpdate(Request $request, $id){

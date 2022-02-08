@@ -18,7 +18,7 @@ use App\Http\Controllers\EscuelaController;
 Route::get('/', [EscuelaController::class, 'alumnosIndex'])->name('index');
 
 // * Ruta para el detalle del alumno
-Route::get('/detalle/{id}', [EscuelaController::class, 'alumnosShow'])->name('lista');
+Route::GET('/detalle/{id}', [EscuelaController::class, 'alumnosShow'])->name('detalle');
 
 // * Ruta para los nuevos registros
 Route::get('/nuevo', [EscuelaController::class, 'alumnosCreate'])->name('nuevo');
@@ -26,7 +26,11 @@ Route::post('/guardar', [EscuelaController::class, 'alumnosStore'])->name('guard
 
 // * Ruta para actualizar la informacion
 Route::put('/salvar', [EscuelaController::class, 'alumnosUpdate'])->name('salvar');
+Route::GET('/editar/{$id}', [EscuelaController::class, 'alumnosEdit'])->name('editar');
 
 // * Ruta para eliminar registros
 Route::delete('/eliminar/{id}', [EscuelaController::class, 'alumnosDelete'])->name('borrar1');
-Route::delete('/eliminar/{id}', [EscuelaController::class, 'alumnosDelete'])->name('borrar2');
+Route::get('/eliminar/{id}', [EscuelaController::class, 'alumnosDelete'])->name('borrar2');
+
+//* Rutas para los ejemplos de javascript
+Route::GET('/ejemplo01', [function(){return view('ejemplo01');}]);
