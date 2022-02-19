@@ -34,3 +34,4 @@ Route::get('/eliminar/{id}', [EscuelaController::class, 'alumnosDelete'])->name(
 
 //* Rutas para los ejemplos de javascript
 Route::GET('/ejemplo01', [function(){return view('ejemplo01');}]);
+Route::GET('/ejemplo02', [function(){return view('ejemplo02');}]);
